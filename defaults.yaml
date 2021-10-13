@@ -1,0 +1,33 @@
+#highlight-style: pygments
+#highlight-style: tango
+#highlight-style: espresso
+#highlight-style: zenburn
+#highlight-style: kate
+#highlight-style: monochrome
+#highlight-style: breezedark
+highlight-style: haddock
+
+#pdf-engine: pdflatex
+#pdf-engine: lualatex
+
+filters:
+ - pandoc-crossref
+
+variables:
+  documentclass: article
+  geometry: margin=2.5cm
+  papersize: a4
+  header-includes:
+   # see https://ctan.uib.no/macros/latex/contrib/caption/caption-eng.pdf
+   - \PassOptionsToPackage{margin=4mm,labelfont=sc}{caption}
+
+  # TODO: use the atkinson-hyperlegible fonts, to help those with dyslexia or visual impairment:
+  #            https://ctan.org/pkg/atkinson?lang=en
+
+  #mainfont: atkinson
+  #mainfontoptions:
+  #- Path=fonts/
+  #- Scale=1.0
+  #- BoldFont=atkinson-hyperlegible-2020-0514/print/Atkinson-Hyperlegible-Bold-102.otf
+  #- ItalicFont=atkinson-hyperlegible-2020-0514/print/Atkinson-Hyperlegible-Italic-102.otf
+  #- BoldItalicFont=atkinson-hyperlegible-2020-0514/print/Atkinson-Hyperlegible-BoldItalic-102.otf
