@@ -1,0 +1,39 @@
+name: Build gh-pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: make dist folder
+        run: mkdir -p dist
+
+      - uses: docker://pandoc/latex:2.14.1
+        with:
+          args: >-
+             --defaults default.pdf
+             -i cookbook_rust.md
+             -o dist/cookbook_rust.pdf
+
+      - uses: docker://pandoc/crossref:2.14.1
+        with:
+          args: >-
+             --defaults default.pdf
+             -i cookbook_rust.md
+             -o dist/index.html
+
+      - name: GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2.5.0
+        with:
+          target_branch: gh-pages
+          build_dir: dist # Build directory to deploy
+          jekyll: false # Allow Jekyll to build your site
+          keep_history: true # Create incremental commit instead of doing push force
