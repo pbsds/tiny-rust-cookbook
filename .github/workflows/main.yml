@@ -18,16 +18,19 @@ jobs:
       - uses: docker://pandoc/latex:2.14.1
         with:
           args: >-
-             --defaults default.pdf
-             -i cookbook_rust.md
-             -o dist/cookbook_rust.pdf
+            -i cookbook_rust.md
+            -o dist/cookbook_rust.pdf
+            --defaults defaults.yaml
 
       - uses: docker://pandoc/crossref:2.14.1
         with:
           args: >-
-             --defaults default.pdf
-             -i cookbook_rust.md
-             -o dist/index.html
+            -i cookbook_rust.md
+            -o dist/index.html
+            --defaults defaults.yaml
+            --katex
+            --standalone
+            --self-contained
 
       - name: GitHub Pages
         if: success()
@@ -37,3 +40,5 @@ jobs:
           build_dir: dist # Build directory to deploy
           jekyll: false # Allow Jekyll to build your site
           keep_history: true # Create incremental commit instead of doing push force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
