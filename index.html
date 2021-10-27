@@ -224,6 +224,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   \PassOptionsToPackage{margin=4mm,labelfont=sc}{caption}
+  \usepackage[sfdefault]{atkinson}
 </head>
 <body>
 <header id="title-block-header">
@@ -258,8 +259,8 @@ Revision 3.0</div></p>
 <h1 id="getting-started">Getting Started</h1>
 <p>First, go to one of these links to get the Rust compiler up and running:</p>
 <blockquote>
-<p><a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install</a><br />
-<a href="https://doc.rust-lang.org/book/ch01-01-installation.html">https://doc.rust-lang.org/book/ch01-01-installation.html</a></p>
+<p><a href="https://www.rust-lang.org/tools/install" class="uri">https://www.rust-lang.org/tools/install</a><br />
+<a href="https://doc.rust-lang.org/book/ch01-01-installation.html" class="uri">https://doc.rust-lang.org/book/ch01-01-installation.html</a></p>
 </blockquote>
 <p>On Windows, when installing the Build Tools for Visual Studio 2019, select:</p>
 <blockquote>
@@ -509,7 +510,9 @@ Storing a sequence of numbers on the heap is done like this:</p>
 <span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>                                         <span class="co">// result, this now prints something</span></span>
 <span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>                                         <span class="co">// else than 0</span></span></code></pre></div>
 <blockquote>
+<blockquote>
 <p><strong>The following information is only needed from assignment 2 and onward.</strong></p>
+</blockquote>
 </blockquote>
 <h1 id="glm---opengl-mathematics">GLM - OpenGL Mathematics</h1>
 <p>The Hitchhikers guide to OpenGL details the data types found in GLSL – the OpenGL Shader Language. To replicate the data types in GLSL and their supported operations on the CPU, some clever guys created the GLM library. We specifically will be using a variant known as <code>nalgebra-glm</code>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
