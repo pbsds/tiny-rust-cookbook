@@ -18,7 +18,7 @@ jobs:
               make \
               git
 
-          tlmgr update --self \
+          tlmgr update --self
           tlmgr install \
               atkinson \
               fontaxes
