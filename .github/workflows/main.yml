@@ -2,38 +2,36 @@ name: Build gh-pages
 
 on:
   push:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: pandoc/latex:2.14.1
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: make dist folder
-        run: mkdir -p dist
+      - run: |
+          apk --no-cache add \
+              make \
 
-      - uses: docker://pandoc/latex:2.14.1
-        with:
-          args: >-
-            -i cookbook_rust.md
-            -o dist/cookbook_rust.pdf
-            --defaults defaults.yaml
+          tlmgr update --self \
+          tlmgr install \
+              atkinson \
+              fontaxes
 
-      - uses: docker://pandoc/crossref:2.14.1
-        with:
-          args: >-
-            -i cookbook_rust.md
-            -o dist/index.html
-            --defaults defaults.yaml
-            --katex
-            --standalone
-            --self-contained
+          make \
+            cookbook_rust.html \
+            cookbook_rust.pdf
+
+          mkdir -p dist
+          mv cookbook_rust.html dist/index.html
+          mv cookbook_rust.pdf  dist/cookbook_rust.pdf
 
       - name: GitHub Pages
-        if: success()
+        if: success() && github.ref == 'refs/heads/main'
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
           target_branch: gh-pages
