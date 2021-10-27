@@ -54,8 +54,8 @@ Additionally, here are a few quick resources that could be useful.
 
 First, go to one of these links to get the Rust compiler up and running:
 
-> [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)\
-> [https://doc.rust-lang.org/book/ch01-01-installation.html](https://doc.rust-lang.org/book/ch01-01-installation.html)
+> <https://www.rust-lang.org/tools/install>\
+> <https://doc.rust-lang.org/book/ch01-01-installation.html>
 
 On Windows, when installing the Build Tools for Visual Studio 2019, select:
 
@@ -481,7 +481,7 @@ println!("Result is: {}", result);       // the function modified `result` as a
 
 \newpage
 
-> **The following information is only needed from assignment 2 and onward.**
+> > **The following information is only needed from assignment 2 and onward.**
 
 # GLM - OpenGL Mathematics
 

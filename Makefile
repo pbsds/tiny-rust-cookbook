@@ -1,9 +1,10 @@
 PANDOC_ARGS += --defaults defaults.yaml
+MAIN_FILE = cookbook_rust
 
-live-view: cookbook_rust.pdf has-entr
-	-xdg-open cookbook_rust.pdf &
-	printf "%s\n" cookbook_rust.md defaults.yaml Makefile \
-		| entr -p make cookbook_rust.pdf
+live-view: ${MAIN_FILE}.pdf has-entr
+	-xdg-open ${MAIN_FILE}.pdf &
+	printf "%s\n" ${MAIN_FILE}.md defaults.yaml Makefile \
+		| entr -p make ${MAIN_FILE}.pdf
 
 has-%:
 	@command -v $* >/dev/null || ( \

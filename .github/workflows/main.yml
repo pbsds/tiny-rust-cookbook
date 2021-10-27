@@ -16,6 +16,7 @@ jobs:
       - run: |
           apk --no-cache add \
               make \
+              git
 
           tlmgr update --self \
           tlmgr install \
