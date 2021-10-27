@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: pandoc/latex:2.14.1
-      #entrypoint: /bin/sh
 
     steps:
       - uses: actions/checkout@v2
@@ -32,7 +31,7 @@ jobs:
           mv cookbook_rust.pdf  dist/cookbook_rust.pdf
 
       - name: GitHub Pages
-        if: success() && github.ref == 'refs/heads/master'
+        if: success() && github.ref == 'refs/heads/main'
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
           target_branch: gh-pages
