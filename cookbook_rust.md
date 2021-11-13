@@ -11,7 +11,7 @@ subtitle: |
 lang: en-US
 numbersections: true
 colorlinks: true
-#links-as-notes: true
+links-as-notes: true
 ---
 
 
@@ -28,7 +28,8 @@ You will not have to learn a lot of Rust to be able to complete the course.
 The majority of the challenge will be learning to use OpenGL.
 
 Should you be interested in learning more about the language, we *highly* recommend reading "*The Rust Programming Language*", a free book online that will easily help you understand Rust:
-[https://doc.rust-lang.org/book/](https://doc.rust-lang.org/book/)
+
+> <https://doc.rust-lang.org/book/>
 
 Additionally, here are a few quick resources that could be useful.
 
@@ -490,9 +491,7 @@ println!("Result is: {}", result);       // the function modified `result` as a
 
 The Hitchhikers guide to OpenGL details the data types found in GLSL -- the OpenGL Shader Language.
 To replicate the data types in GLSL and their supported operations on the CPU, some clever guys created the GLM library.
-We specifically will be using a variant known as `nalgebra-glm`.[^nglm]
-
-[^nglm]: <https://docs.rs/nalgebra-glm/0.15.0/nalgebra_glm/>
+We specifically will be using a variant known as [`nalgebra-glm`.](https://docs.rs/nalgebra-glm/0.15.0/nalgebra_glm/)
 
 
 ## Vectors and swizzling
@@ -564,10 +563,8 @@ The lowercase `mat3` function is basically just an alias to `Mat3::new`{.rust}
 )*
 
 Notice how the values are mirrored/flipped along the diagonal?
-This is because matrices in GLM and GLSL are **column major**.[^tbos]
+This is because matrices in GLM and GLSL are [**column major**.](https://thebookofshaders.com/glossary/?search=mat4)
 If you’re not familiar with the term, column major means that you first address the column, then the row.
-
-[^tbos]: <https://thebookofshaders.com/glossary/?search=mat4>
 
 As such, when addressing a single element in a matrix we have:
 
