@@ -18,9 +18,3 @@ variables:
   geometry: margin=2.5cm
   papersize: a4
   #TODO: atkinson in HTML output
-  header-includes:
-      # TODO: include only in latex?
-      # see https://ctan.uib.no/macros/latex/contrib/caption/caption-eng.pdf
-    - \PassOptionsToPackage{margin=4mm,labelfont=sc}{caption}
-      # requires 'texlive-fontsextra' or 'atkinson' from CTAN
-    - \usepackage[sfdefault]{atkinson}

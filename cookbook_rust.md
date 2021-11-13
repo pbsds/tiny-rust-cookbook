@@ -12,6 +12,11 @@ lang: en-US
 numbersections: true
 colorlinks: true
 links-as-notes: true
+header-includes: # TODO: move these to default.yaml
+      # see https://ctan.uib.no/macros/latex/contrib/caption/caption-eng.pdf
+  - '`\PassOptionsToPackage{margin=4mm,labelfont=sc}{caption}`{=latex}'
+      # requires 'texlive-fontsextra' or 'atkinson' from CTAN
+  - '`\usepackage[sfdefault]{atkinson}`{=latex}'
 ---
 
 
