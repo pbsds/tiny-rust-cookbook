@@ -223,8 +223,8 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  \PassOptionsToPackage{margin=4mm,labelfont=sc}{caption}
-  \usepackage[sfdefault]{atkinson}
+  
+  
 </head>
 <body>
 <header id="title-block-header">
@@ -243,7 +243,10 @@ Revision 3.0</div></p>
 <li>Many of the mistakes students traditionally have been making in this course are a lot harder to make in Rust</li>
 </ul>
 <p>You will not have to learn a lot of Rust to be able to complete the course. The majority of the challenge will be learning to use OpenGL.</p>
-<p>Should you be interested in learning more about the language, we <em>highly</em> recommend reading “<em>The Rust Programming Language</em>”, a free book online that will easily help you understand Rust: <a href="https://doc.rust-lang.org/book/">https://doc.rust-lang.org/book/</a></p>
+<p>Should you be interested in learning more about the language, we <em>highly</em> recommend reading “<em>The Rust Programming Language</em>”, a free book online that will easily help you understand Rust:</p>
+<blockquote>
+<p><a href="https://doc.rust-lang.org/book/" class="uri">https://doc.rust-lang.org/book/</a></p>
+</blockquote>
 <p>Additionally, here are a few quick resources that could be useful.</p>
 <ul class="incremental">
 <li><strong>Rust by Example:</strong><br />
@@ -515,7 +518,7 @@ Storing a sequence of numbers on the heap is done like this:</p>
 </blockquote>
 </blockquote>
 <h1 id="glm---opengl-mathematics">GLM - OpenGL Mathematics</h1>
-<p>The Hitchhikers guide to OpenGL details the data types found in GLSL – the OpenGL Shader Language. To replicate the data types in GLSL and their supported operations on the CPU, some clever guys created the GLM library. We specifically will be using a variant known as <code>nalgebra-glm</code>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>The Hitchhikers guide to OpenGL details the data types found in GLSL – the OpenGL Shader Language. To replicate the data types in GLSL and their supported operations on the CPU, some clever guys created the GLM library. We specifically will be using a variant known as <a href="https://docs.rs/nalgebra-glm/0.15.0/nalgebra_glm/"><code>nalgebra-glm</code>.</a></p>
 <h2 id="vectors-and-swizzling">Vectors and swizzling</h2>
 <p>The type <code class="sourceCode rust"><span class="pp">glm::</span>Vec3</code> represents a column vector with 3 elements. Similarly, we have <code class="sourceCode rust"><span class="pp">glm::</span>Vec2</code> and <code class="sourceCode rust"><span class="pp">glm::</span>Vec4</code>. The following three vectors are equivalent:</p>
 <p><span class="math display">
@@ -554,11 +557,11 @@ Storing a sequence of numbers on the heap is done like this:</p>
 <span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    c<span class="op">,</span>  f<span class="op">,</span>  i<span class="op">,</span>   <span class="co">// 3rd column</span></span>
 <span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div>
 <p><em>( The lowercase <code>mat3</code> function is basically just an alias to <code class="sourceCode rust"><span class="pp">Mat3::</span>new</code> )</em></p>
-<p>Notice how the values are mirrored/flipped along the diagonal? This is because matrices in GLM and GLSL are <strong>column major</strong>.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> If you’re not familiar with the term, column major means that you first address the column, then the row.</p>
+<p>Notice how the values are mirrored/flipped along the diagonal? This is because matrices in GLM and GLSL are <a href="https://thebookofshaders.com/glossary/?search=mat4"><strong>column major</strong>.</a> If you’re not familiar with the term, column major means that you first address the column, then the row.</p>
 <p>As such, when addressing a single element in a matrix we have:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>M[(column<span class="op">,</span> row)]</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>M[(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)]  <span class="op">==</span>  d</span></code></pre></div>
-<p>Notice how we use a <code class="sourceCode rust">(<span class="dt">usize</span><span class="op">,</span> <span class="dt">usize</span>)</code> tuple to index into the matrix with the <code>[]</code> operator.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p>Notice how we use a <code class="sourceCode rust">(<span class="dt">usize</span><span class="op">,</span> <span class="dt">usize</span>)</code> tuple to index into the matrix with the <code>[]</code> operator.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 <p>Luckily, flipping a matrix along the diagonal is a common operation known as <em>transposing</em> a matrix. The mathematical notation for matrix transposition is <span class="math inline">M^T</span>. In GLM and GLSL, the function <code>transpose</code> implements this for us:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> M <span class="op">=</span> <span class="pp">glm::</span>transpose(<span class="pp">glm::</span>mat3(</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    a<span class="op">,</span>  b<span class="op">,</span>  c<span class="op">,</span>   <span class="co">// 1st row</span></span>
@@ -605,9 +608,7 @@ Storing a sequence of numbers on the heap is done like this:</p>
 <li id="fn1" role="doc-endnote"><p>Moving ownership is only a problem for “complicated” objects and data – the kind of values you can’t store on the stack. The specific reason why is that most builtin <em>“simple”</em> types implement the <code class="sourceCode rust"><span class="bu">Copy</span></code> Trait by default, which means they instead get copied when they are attempted to be moved. You can read more about Traits in the Rust book.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>“<em>Dereferencing</em>” a pointer means accessing the place in memory a pointer points at.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p>“Void” means missing. “Void functions” return nothing. “Void pointers” may point at <em>anything</em>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p><a href="https://docs.rs/nalgebra-glm/0.15.0/nalgebra_glm/" class="uri">https://docs.rs/nalgebra-glm/0.15.0/nalgebra_glm/</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p><a href="https://thebookofshaders.com/glossary/?search=mat4" class="uri">https://thebookofshaders.com/glossary/?search=mat4</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6" role="doc-endnote"><p>For those interested, this is implemented here: <a href="https://docs.rs/nalgebra/0.29.0/nalgebra/base/struct.Matrix.html#impl-Index%3C(usize%2C%20usize)%3E" class="uri">https://docs.rs/nalgebra/0.29.0/nalgebra/base/struct.Matrix.html#impl-Index%3C(usize%2C%20usize)%3E</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>For those interested, this is implemented here: <a href="https://docs.rs/nalgebra/0.29.0/nalgebra/base/struct.Matrix.html#impl-Index%3C(usize%2C%20usize)%3E" class="uri">https://docs.rs/nalgebra/0.29.0/nalgebra/base/struct.Matrix.html#impl-Index%3C(usize%2C%20usize)%3E</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>
