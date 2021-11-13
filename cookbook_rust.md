@@ -8,6 +8,7 @@ author:
 subtitle: |
     | Department of Computer and Information Science, NTNU
     | Revision 3.0
+date: \today
 lang: en-US
 numbersections: true
 colorlinks: true
