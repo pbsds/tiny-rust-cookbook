@@ -1,0 +1,40 @@
+{
+  "nodes": {
+    "katex": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Wb6EZ6zWBw3zEhO4d2mRHFzAbCn28zhS+S59kEPY9gA=",
+        "type": "tarball",
+        "url": "https://github.com/KaTeX/KaTeX/releases/download/v0.15.1/katex.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/KaTeX/KaTeX/releases/download/v0.15.1/katex.tar.gz"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1688392541,
+        "narHash": "sha256-lHrKvEkCPTUO+7tPfjIcb7Trk6k31rz18vkyqmkeJfY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ea4c80b39be4c09702b0cb3b42eab59e2ba4f24b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-22.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "katex": "katex",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

@@ -7,29 +7,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: pandoc/latex:2.14.1
-
     steps:
-      - uses: actions/checkout@v2
-
+      - uses: actions/checkout@v3
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: |
-          apk --no-cache add \
-              make \
-              git
-
-          tlmgr update --self
-          tlmgr install \
-              atkinson \
-              fontaxes
-
-          make \
-            cookbook_rust.html \
-            cookbook_rust.pdf
-
+          nix build .#pdf .#html
           mkdir -p dist
-          mv cookbook_rust.html dist/index.html
-          mv cookbook_rust.pdf  dist/cookbook_rust.pdf
+          cp result*/* dist/
 
       - name: GitHub Pages
         if: success() && github.ref == 'refs/heads/main'

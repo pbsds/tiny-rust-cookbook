@@ -2,3 +2,6 @@
 *.tex
 *.html
 *.gfm
+.direnv
+result
+result-*
