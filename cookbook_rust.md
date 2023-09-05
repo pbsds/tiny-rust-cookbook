@@ -7,7 +7,7 @@ author:
 - Peder Bergebakken Sundt
 subtitle: |
     | Department of Computer and Information Science, NTNU
-    | Revision 3.0
+    | Revision 4.0
 date: \today
 lang: en-US
 numbersections: true
@@ -59,7 +59,28 @@ Additionally, here are a few quick resources that could be useful.
 
 # Getting Started
 
-First, go to one of these links to get the Rust compiler up and running:
+## Linux
+
+Try looking for `rustup` or `cargo` in your package manager (such as `apt`,`dnf` or `pamac`).
+
+If it is not there then go to one of these links to get the Rust compiler up and running:
+
+> <https://www.rust-lang.org/tools/install>\
+> <https://doc.rust-lang.org/book/ch01-01-installation.html>
+
+## Windows 11
+
+Right-click the start icon, and launch something to the end of "_Terminal (Administrator)_".
+
+```shell
+    winget install cargo
+```
+
+Then try it out by opening a new terminal window _(search for "`cmd`")_ and try typing "`cargo`" into it. If you get a help message blurb rather than an error message then you should be good to go.
+
+## Windows 10 or below
+
+Go to one of these links to get the Rust compiler up and running:
 
 > <https://www.rust-lang.org/tools/install>\
 > <https://doc.rust-lang.org/book/ch01-01-installation.html>
@@ -67,6 +88,8 @@ First, go to one of these links to get the Rust compiler up and running:
 On Windows, when installing the Build Tools for Visual Studio 2019, select:
 
 > ![](img/shot.png){width=24em}
+
+## Editing Rust
 
 An often preferred code editor for writing Rust is VSCode, short for Visual Studio Code (<https://code.visualstudio.com/>).
 With it you should install and use the official Rust extension to get proper syntax highlighting and error squiggles (i.e. linting).

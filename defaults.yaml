@@ -12,6 +12,7 @@ highlight-style: haddock
 
 filters:
  - pandoc-crossref
+ - type: citeproc
 
 variables:
   documentclass: article
