@@ -690,8 +690,8 @@ As such we encourage you to structure your transformations something like this:
 ```rust
 let mut trans: glm::Mat4 = glm::identity();  // begin with an empty transformation
 trans = glm::rotation(angle, &axis)              * trans; // apply a rotation
-trans = glm::scaling(&glm::veg3(sx, sy, sz))     * trans; // then apply some scaling
-trans = glm::translation(&glm::veg3(tx, ty, tz)) * trans; // followed by a translation
+trans = glm::scaling(&glm::vec3(sx, sy, sz))     * trans; // then apply some scaling
+trans = glm::translation(&glm::vec3(tx, ty, tz)) * trans; // followed by a translation
 ```
 
 Using this structure, you can read the transformations applied ordered downward.
