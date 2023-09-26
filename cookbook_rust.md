@@ -7,7 +7,7 @@ author:
 - Peder Bergebakken Sundt
 subtitle: |
     | Department of Computer and Information Science, NTNU
-    | Revision 4.0
+    | Revision 4.1
 date: \today
 lang: en-US
 numbersections: true
@@ -104,7 +104,7 @@ Alternatives to VSCode include:
 * Atom with the `ide-rust` and `language-glsl` plugins
 * IntelliJ IDEA with `IntelliJ Rust` and `GLSL Support`.
 * Eclipse with `RustDT` and `Eclipse Shaders`.
-* Vim with the official `rust.vim` plugin, and your choice of `glsl` highlightning
+* Vim with the official `rust.vim` plugin, and your choice of `glsl` highlighting
 * Emacs with `rust-mode` and `glsl-mode`
 * Kate with `rust-racer`.
 
@@ -164,7 +164,7 @@ As such we have two different types of integers: *signed* and *unsigned* integer
 *(The C++ names are useful to know when reading the OpenGL documentation.)*
 {#tbl:integers}
 
-`isize`{.rust} and `usize`{.rust} varies with the machine architeture, but is at least large enough to reference the whole memory address space.
+`isize`{.rust} and `usize`{.rust} varies with the machine architecture, but is at least large enough to reference the whole memory address space.
 As such it is used when indexing into lists and arrays.
 
 [^cpp_types]:
